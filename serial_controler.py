@@ -7,9 +7,10 @@ uno = serial.Serial('',9600,timeout=1) # Update port to match your Pi (/dev/ttyA
 time.sleep(4) #timeout to allow connection
 
 def main():
-    req = True
     with open("","+a",encoding="utf-8") as csv:  
-        while req:
+        amount =input("How many readings do you want to do?")
+        for i in range(amount) :
+            uno.write(b'1')
             if uno.in_waiting > 0:
                 text = uno.readline().decode('utf-8').rstrip
                 csv.write(text + "\n")
