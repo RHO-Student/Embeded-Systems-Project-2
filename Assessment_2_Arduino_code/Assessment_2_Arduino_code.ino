@@ -1,14 +1,17 @@
 const int control_MQ2 = A0;
 const int Contaminated_MQ2 = A1;
+int inital_Control;
+int initial_Contam;
+int sensor_Offset;
 
 void setup() {
   Serial.begin(9600);
   Serial.print("Pausing to warm up sensor");
   delay(120000);  //sensor needs between 2-5 min for a mq-2
   Serial.print("Sensor warming done");
-  int inital_Control = analogRead(control_MQ2);
-  int initial_Contam = analogRead(Contaminated_MQ2);
-  int sensor_Offset = initial_Contam - inital_Control;  //moved to normalise the sensor at the start
+  inital_Control = analogRead(control_MQ2);
+  initial_Contam = analogRead(Contaminated_MQ2);
+  sensor_Offset = initial_Contam - inital_Control;  //moved to normalise the sensor at the start
 }
 
 void loop() {
