@@ -1,4 +1,4 @@
-init_Con,init_sen,offset,Con,raw_sen,adjusted_sen,diff,raw_senV,diffV,polution,time
+Startup Control,Startup Sensor,offset,Control,Raw Sensor,Adjusted Sensor,Difference,Sensor Voltage,Difference Voltage,Contamination Level,Time
 36,89,53,37,89,36,-1,0.43,-0.00,NORMAL,07-09-2026 13:47
 37,89,52,37,89,37,0,0.43,0.00,NORMAL,07-09-2026 13:50
 37,90,53,38,90,37,-1,0.44,-0.00,NORMAL,07-09-2026 13:52
