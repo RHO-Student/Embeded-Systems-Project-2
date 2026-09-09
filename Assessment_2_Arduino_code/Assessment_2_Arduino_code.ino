@@ -3,6 +3,7 @@ const int Contaminated_MQ2 = A1;
 int inital_Control;
 int initial_Contam;
 int sensor_Offset;
+int diff;
 
 void setup() {
   Serial.begin(9600);
@@ -16,7 +17,7 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-    Serial.read(); //clears the serial line to avoid running multipule timer
+    Serial.read();  //clears the serial line to avoid running multipule timer
     detect();
   }
 }
@@ -25,7 +26,7 @@ void detect() {
   int Control = analogRead(control_MQ2);
   int rawContam = analogRead(Contaminated_MQ2);
   int ajustedContam = rawContam - sensor_Offset;
-  int diff = ajustedContam - Control;
+  diff = ajustedContam - Control;
   float rawvolt = rawContam * (5.0 / 1023.0);
   float diffVolt = diff * (5.0 / 1023.0);
   Serial.print(inital_Control);
@@ -45,7 +46,19 @@ void detect() {
   Serial.print(rawvolt);
   Serial.print(",");
   Serial.print(diffVolt);
-  Serial.print("\n");
+  if (diff > 245) {
+    Serial.print(",");
+    Serial.print("HIGH");
+  } else if (diff > 82) {
+    Serial.print(",");
+    Serial.print("MEDIUM");
+  } else if (diff > 30) {
+    Serial.print(",");
+    Serial.print("LOW");
+  } else {
+    Serial.print(",");
+    Serial.print("NORMAL");
+  }
   //return all variables with temp then timestamp with system time
   // note that the break points for future use are <30 /0.15V diff means clean air
   // 30 /0.15v - 82/0.40v light contamination (not visalbe gas small flame of smoke)
