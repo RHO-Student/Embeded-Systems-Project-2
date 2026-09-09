@@ -6,9 +6,9 @@ import time
 def main():
     print ("NOTE there is a minute between each reading entered")
 
-    uno = serial.Serial('COM3',9600,timeout=1) # Update port to match your Pi (/dev/ttyACM0 or /dev/ttyUSB0), 9600, timeout=1) COM3 for win usuly
+    uno = serial.Serial('COM8',9600,timeout=1) # Update port to match your Pi (/dev/ttyACM0 or /dev/ttyUSB0), 9600, timeout=1) COM3 for win usuly
     time.sleep(2)
-    with open(r"H:\Embeded-Systems-Project-2\Readings.csv","a",encoding="utf-8") as csv:  # dispite working relitivly at home abslute is needed for runing at course 
+    with open(r"C:\Users\roars\Pictures\cODE SHEET\Embeded-Systems-Project-2\Readings.csv","a",encoding="utf-8") as csv:  # dispite working relitivly at home abslute is needed for runing at course 
         uno.write(b'1')
         for i in range(5) :
             text = uno.readline().decode('utf-8').rstrip()
@@ -24,4 +24,4 @@ def main():
 amount = int(input("How many readings do you want? "))
 for i in range (amount):
     main()
-    time.sleep(60)
+    time.sleep(10)
