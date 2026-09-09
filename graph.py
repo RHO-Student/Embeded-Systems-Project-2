@@ -12,7 +12,7 @@ streamlit.set_page_config(layout="wide",page_title ="Shed Status")
 streamlit.title("Embedded Systems Sensor project")
 streamlit.markdown("---")
 
-data = pandas.read_csv(r"C:\Users\roars\Pictures\cODE SHEET\Embeded-Systems-Project-2\Readings.csv")
+data = pandas.read_csv(r"D:\Readings.csv") #D:\Readings.csv  or C:\Users\roars\Pictures\cODE SHEET\Embeded-Systems-Project-2\
 streamlit.subheader("Gas sensor readings")
 Show_Graph = streamlit.toggle("Toggle Datagrid / Graph")
 if Show_Graph:
