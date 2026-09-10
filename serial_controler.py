@@ -1,12 +1,12 @@
 # https://www.w3schools.com/python/python_file_open.asp
-
+# Update port to match your Pi (/dev/ttyACM0 or /dev/ttyUSB0), 9600, timeout=1) COM3 for win usuly
 import serial
 import time
 
 def main():
     print ("NOTE there is a minute between each reading entered")
 
-    uno = serial.Serial('COM8',9600,timeout=1) # Update port to match your Pi (/dev/ttyACM0 or /dev/ttyUSB0), 9600, timeout=1) COM3 for win usuly
+    uno = serial.Serial('COM8',9600,timeout=1) 
     time.sleep(2)
     with open(r"C:\Users\roars\Pictures\cODE SHEET\Embeded-Systems-Project-2\Readings.csv","a",encoding="utf-8") as csv:  # dispite working relitivly at home abslute is needed for runing at course 
         uno.write(b'1')
